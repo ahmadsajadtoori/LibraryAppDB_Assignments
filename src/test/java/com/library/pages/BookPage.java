@@ -50,6 +50,8 @@ public class BookPage extends BasePage {
 
 
 
+
+
     public WebElement editBook(String book) {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
@@ -59,6 +61,16 @@ public class BookPage extends BasePage {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
+    //---------------------------------added by Adam--------------------
+    public String getBookInfo(String infoName){
+        String locator="//form[@id='edit_book_form']//label[.='"+infoName+"']/../input";
+        return Driver.getDriver().findElement(By.xpath(locator)).getAttribute("value");
+    }
+
+    public void bookSearch(String bookName) {
+        search.sendKeys(bookName);
+    }
+
 
 
 
